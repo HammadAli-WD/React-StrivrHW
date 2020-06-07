@@ -5,7 +5,8 @@ import Booklistitem from './Booklistitem'
 export default class Booklist extends Component {
     state = {
         books:[],
-        search: ""            
+        search: ""
+                    
     }
     
     render() {        
@@ -15,7 +16,7 @@ export default class Booklist extends Component {
             <Row>
             <FormControl
             placeholder="search"
-            value = {this.state.value}
+            value = {this.state.search}
             onChange = {(e) => this.setState({ search: e.currentTarget.value.toLowerCase()})}
             />
             </Row>
@@ -26,6 +27,9 @@ export default class Booklist extends Component {
                .map( book => 
                 <Booklistitem key={book.asin} item = {book}/>
                 )}
+            </Row>
+            <Row>
+
             </Row>
             </>
         )
