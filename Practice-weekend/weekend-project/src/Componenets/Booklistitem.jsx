@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import {Card, Button} from "react-bootstrap"
+import {Card} from "react-bootstrap"
+import CommentList from './CommentList'
 
 export default class Booklistitem extends Component {
-   
+   state = {
+       comments: []
+   }
     render() {
         return (
             <>           
@@ -13,10 +16,21 @@ export default class Booklistitem extends Component {
                     <Card.Text>
                     {this.props.item.category}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <CommentList comments = {this. state.comments} />
             </Card.Body>
         </Card>
         </>
         )
+    }
+    componentDidMount= async () => {
+        const resp = await fetch ("https://striveschool.herokuapp.com/api/comments/" + this.props.asin, {
+           headers: { "Authorization" : 'Basic dXNlcjE1OnNISFU1S1dtVkUyNmF2Qzg='}
+        })
+
+        const retrivecomments = await resp.json();
+        this.setState ({
+            comments:retrivecomments
+        })
+        
     }
 }
