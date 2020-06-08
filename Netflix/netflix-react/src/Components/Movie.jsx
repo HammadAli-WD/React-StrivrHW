@@ -56,7 +56,82 @@ export default class Movie extends Component {
                     this.props.fetchComments(this.props.data.imdbID)
                 }}
                 />
-                 
+                <Modal
+                    show={this.state.selected}
+                    onHide={() => this.setState({ selected: !this.state.selected })}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Movie comments</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+            <div className="my-3">
+              {this.props.comments.length > 0 &&
+                this.props.comments[0].elementId === this.props.data.imdbID && (
+                  <CommentList comments={this.props.comments} />
+                )}
+              <div className="text-center">
+                <h5 className="my-3">Add a comment</h5>
+                <Form onSubmit={this.submitComment}>
+                  <div className="my-3 text-center">
+                    <Form.Check
+                      inline
+                      label="1"
+                      type="radio"
+                      id="1"
+                      name="rating"
+                      onClick={this.handleRadioChange}
+                    />
+                    <Form.Check
+                      inline
+                      label="2"
+                      type="radio"
+                      id="2"
+                      name="rating"
+                      onClick={this.handleRadioChange}
+                    />
+                    <Form.Check
+                      inline
+                      label="3"
+                      type="radio"
+                      id="3"
+                      name="rating"
+                      onClick={this.handleRadioChange}
+                    />
+                    <Form.Check
+                      inline
+                      label="4"
+                      type="radio"
+                      id="4"
+                      name="rating"
+                      onClick={this.handleRadioChange}
+                    />
+                    <Form.Check
+                      inline
+                      label="5"
+                      type="radio"
+                      id="5"
+                      name="rating"
+                      onClick={this.handleRadioChange}
+                    />
+                  </div>
+                  <InputGroup className="mb-3">
+                    <FormControl
+                      placeholder="Write your comment"
+                      aria-label="comment"
+                      aria-describedby="basic-addon1"
+                      onChange={this.handleCommentText}
+                      value={this.state.newComment.comment}
+                    />
+                  </InputGroup>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
+              </div>
+            </div>
+          </Modal.Body>
+                                            
+                </Modal>
                 
             </Col>
         )
