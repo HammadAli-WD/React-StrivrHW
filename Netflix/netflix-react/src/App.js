@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Container, Alert, Dropdown } from "react-bootstrap";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Gallery from "./components/Gallery";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Gallery from "./Components/Gallery";
 
 
 export default class App extends Component {
@@ -63,6 +63,7 @@ export default class App extends Component {
 
   render() {
     return (
+      <div className="App">
       <div>
         <Navbar showSearchResult= {this.showSearchResult} />
         <Container fluid className="px-4">
@@ -129,9 +130,9 @@ export default class App extends Component {
                 />
             </>
           )}
-
-        </Container>
-        
+          <Footer />
+        </Container>        
+      </div>
       </div>
     )
   }
