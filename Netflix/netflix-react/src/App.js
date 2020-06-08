@@ -37,7 +37,14 @@ export default class App extends Component {
       console.log("An error has occured:", err);
     });
   };
+  showSearchResult = (searchString) => {
+    fetch(url + '&s=' + searchString)
+      .then((response) => response.json())
+      .then ((responseObject) =>
+      this.setState({searchdeMovies : responseObject.Search}));
+  };
   
+
   render() {
     return (
       <div>
