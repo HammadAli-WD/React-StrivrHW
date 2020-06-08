@@ -37,13 +37,26 @@ export default class App extends Component {
       console.log("An error has occured:", err);
     });
   };
+  
   showSearchResult = (searchString) => {
     fetch(url + '&s=' + searchString)
       .then((response) => response.json())
       .then ((responseObject) =>
       this.setState({searchdeMovies : responseObject.Search}));
   };
-  
+
+  fetchComments = async(movieID) => {
+    const fetchUrl =  await fetch ("https://striveschool.herokuapp.com/api/comments/" + movieID, {
+      headers: { "Authorization" : 'Basic dXNlcjE1OnNISFU1S1dtVkUyNmF2Qzg='}
+   })
+
+   const retrieveComments = await fetchUrl.json();
+   this.setState({
+     comments:retrieveComments
+   });
+
+  };
+
 
   render() {
     return (
