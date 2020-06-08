@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import { Container, Alert, Dropdown } from "react-bootstrap";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Gallery from "./components/Gallery";
 
 
 export default class App extends Component {
@@ -39,7 +42,7 @@ export default class App extends Component {
   };
   
   showSearchResult = (searchString) => {
-    fetch(url + '&s=' + searchString)
+    fetch(this.url + '&s=' + searchString)
       .then((response) => response.json())
       .then ((responseObject) =>
       this.setState({searchdeMovies : responseObject.Search}));
@@ -61,6 +64,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Navbar showSearchResult= {this.showSearchResult} />
         
       </div>
     )
