@@ -104,6 +104,31 @@ export default class App extends Component {
             movies = {this.state.searchdeMovies}
             />
           )}
+          {!this.state.error && !this.state.searchdeMovies.length > 0 && (
+            <>
+             <Gallery
+                  title="Harry Potter"
+                  loading={this.state.loading}
+                  fetchComments={this.fetchComments}
+                  comments={this.state.comments}
+                  movies={this.state.harryPotterMovies.slice(0, 6)}
+                />
+                <Gallery
+                  title="Spider Man"
+                  loading={this.state.loading}
+                  fetchComments={this.fetchComments}
+                  comments={this.state.comments}
+                  movies={this.state.spiderManMovies.slice(0, 6)}
+                />
+                <Gallery
+                  title="Star Wars"
+                  loading={this.state.loading}
+                  fetchComments={this.fetchComments}
+                  comments={this.state.comments}
+                  movies={this.state.starWarsMovies.slice(0, 6)}
+                />
+            </>
+          )}
 
         </Container>
         
