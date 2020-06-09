@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
 import { Container, Alert, Dropdown } from "react-bootstrap";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -44,7 +44,7 @@ export default class App extends Component {
   showSearchResult = (searchString) => {
     fetch(this.url + '&s=' + searchString)
       .then((response) => response.json())
-      .then ((responseObject) =>
+      .then ((responseObject) => 
       this.setState({searchdeMovies : responseObject.Search}));
   };
 
@@ -130,6 +130,7 @@ export default class App extends Component {
                 />
             </>
           )}
+         {/*  <Route path="/ShowDetail/:id" component={ShowDetail} /> */}
           <Footer />
         </Container>        
       </div>

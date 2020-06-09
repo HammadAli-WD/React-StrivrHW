@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, InputGroup, FormControl } from "react-bootstrap";
-
-export default class NavbarNetflix extends Component {
+import { Link, withRouter } from 'react-router-dom'
+class NavbarNetflix extends Component {
     state = {
         searchString:""
     }
@@ -17,29 +17,26 @@ export default class NavbarNetflix extends Component {
     render() {
         return (
             <Navbar variant="dark" expand="lg" style={{ backgroundColor: "#221f1f" }}>
-        <Navbar.Brand href="/">
-          <img
-            src="assets/logo.png"
-            alt="logo"
-            style={{ width: "100px", height: "55px" }}
-          />
+        <Link to="/">
+        <Navbar.Brand>
+         <h2>Home</h2>
         </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link className="font-weight-bold" href="/">
-              Home
-            </Nav.Link>
-            <Nav.Link active className="font-weight-bold" href="/">
+            
+              
+            <Nav.Link active className="font-weight-bold" href="#">
               TV Shows
             </Nav.Link>
-            <Nav.Link className="font-weight-bold" href="/">
+            <Nav.Link className="font-weight-bold" href="#">
               Movies
             </Nav.Link>
-            <Nav.Link className="font-weight-bold" href="/">
+            <Nav.Link className="font-weight-bold" href="#">
               Recently Added
             </Nav.Link>
-            <Nav.Link className="font-weight-bold" href="/">
+            <Nav.Link className="font-weight-bold" href="#">
               My List
             </Nav.Link>
           </Nav>
@@ -63,3 +60,5 @@ export default class NavbarNetflix extends Component {
         )
     }
 }
+
+export default withRouter(NavbarNetflix)
