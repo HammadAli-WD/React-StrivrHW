@@ -3,8 +3,8 @@ import {Col, Image} from 'react-bootstrap'
 
 export default function Movie(props) {
     return (
-        <Col>
-            <Image fluid src = {props.imageSrc} alt={props.title} />
-        </Col>
+        <Col className="mb-2">
+        <Image fluid src={props.movie.Poster} alt={props.movie.Title} />
+      </Col>
     )
 }
