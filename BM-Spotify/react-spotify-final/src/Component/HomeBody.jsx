@@ -1,65 +1,31 @@
 import React from 'react'
+import { Row, Col, Spinner } from "react-bootstrap";
+import Song from "./Song";
+const HomeBody = ({Title, Songs, loading}) => {
+        return (
+        <div>
+            <h4>{Title}</h4>
 
-const HomeBody = () => (
+            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-6 row-cols-xl-6 mb-4 no-gutters text-center">
+        {loading
+          ? [0, 1, 2, 3, 4, 5].map((num, i) => (
+              <Col key={i}>
+                <Spinner animation="border" role="status" variant="success">
+                  <span className="sr-only">Loading...</span>
+                </Spinner>
+              </Col>
+            ))
+          : Songs.map((song) => (
+              <Song
+              song={song}
+              key={song.id}
+                /* comments={comments}
+                fetchComments={fetchComments} */
+              />
+            ))}
         
-        <>
-            
-                <div className="row">
-                    <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
-                        <a href="#">TRENDING</a>
-                        <a href="#">PODCAST</a>
-                        <a href="#">MOODS AND GENRES</a>
-                        <a href="#">NEW RELEASES</a>
-                        <a href="#">DISCOVER</a>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-10"></div>
-                </div>
-
-                <div className="row">
-                    <div className="col-10">
-                    <div id="rock">
-                        <h2>Eminem</h2>
-                        <div
-                        className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
-                        id="Eminem"
-                        ></div>
-                    </div>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-10">
-                    <div id="rock">
-                        <h2>Metallica</h2>
-                        <div
-                        className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
-                        id="Metallica"
-                        ></div>
-                    </div>
-                    </div>
-                </div>
-
-                <div className="row">
-                 <div className="col-10">
-                    <div id="rock">
-                        <h2>Behemoth</h2>
-                        <div
-                        className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
-                        id="Behemoth"
-                        ></div>
-                    </div>
-                 </div>
-                </div>
-        </>
-        
-      
-    
-    
-    )
-
-
-
-export default HomeBody
+      </Row>         
+        </div>
+         );   
+    }
+export default HomeBody;
