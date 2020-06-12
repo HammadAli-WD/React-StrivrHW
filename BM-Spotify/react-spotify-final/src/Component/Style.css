@@ -1,9 +1,13 @@
+body{
+    background-color: black;
+}
 .sidebar {
     position: fixed;
     top: 0;
     color: #fff;
     min-height: 90vh;
     left: 0;
+    max-width: 10vw;
     
     /* z-index: 100; */
     /* padding: 48px 0 0;
