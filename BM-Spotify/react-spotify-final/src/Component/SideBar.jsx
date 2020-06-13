@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navbar, Nav } from "react-bootstrap";
-import {withRouter} from "react-router-dom"
+import {withRouter, Link} from "react-router-dom"
 //import './Style.css';
 
 
@@ -11,7 +11,7 @@ const Side = props => {
 
             <Navbar  className="col-md-2 d-none d-md-block bg-dark sidebar" style ={{}}
             collapseOnSelect
-            activeKey="/home"
+            activekey="/home"
             onSelect={selectedKey => alert(`selected ${selectedKey}`)}
             >
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -22,18 +22,20 @@ const Side = props => {
             </Nav.Item>
                 
             <Nav.Item>
-                {/* <Link to='/Solution'>Solution</Link> */}
-                <Nav.Link href="/home">Home</Nav.Link>
+                <Link to='/'>Home</Link>
+                {/* <Nav.Link href="/home">Home</Nav.Link> */}
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey="link-1">Search</Nav.Link>
+            <Link to='/tracks/:id'>Tracks</Link>
+                {/* <Nav.Link eventKey="link-1">Search</Nav.Link> */}
             </Nav.Item>
             <Nav.Item>
+            {/* <Link to='/'>Home</Link> */}
                 <Nav.Link eventKey="link-2">Your Library</Nav.Link>
             </Nav.Item>
             <Nav.Item className="footerSB">
                 <Nav.Link className="p-3">Install App</Nav.Link>                        
-                <h6 class="border-top ml-2"> 
+                <h6 className="border-top ml-2"> 
                 <img src="spotifyAssets/Diego.jpg" style={{objectFit: 'cover', width:'20px'}} /> Diego 'Zeba' Benovaz
                 </h6>
             </Nav.Item>
