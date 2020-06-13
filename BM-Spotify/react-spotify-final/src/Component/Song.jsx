@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Image, Modal, Button, Spinner } from "react-bootstrap";
+import { Link, withRouter } from "react-router-dom";
 //import CommentList from "./CommentList";
 class Song extends React.Component {
  /*  constructor(props) {
@@ -10,21 +11,23 @@ class Song extends React.Component {
     };
   } */
 
-  /* handleClick = (movieID) => {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
-    this.props.fetchComments(movieID);
+ /*  handleClick = (movieID) => {
+    
   }; */
 
   render() {
     const { song } = this.props;
     return (
       <Col className="mb-2">
-        <Image
+          <Link to={'/Tracks/' + song.id} >
+          <Image
           fluid
           src={song.album.cover_medium}
           alt={song.album.title}
-          onClick={() => this.handleClick(song.id)}
+          
         />
+</Link>
+        
         {/* <Modal show={this.state.isModalVisible} onHide={this.handleClick}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
@@ -50,4 +53,4 @@ class Song extends React.Component {
   }
 }
 
-export default Song;
+export default withRouter(Song);
