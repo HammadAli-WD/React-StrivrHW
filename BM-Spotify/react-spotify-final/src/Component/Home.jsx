@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Container, Row, Col, Form, Button } from "react-bootstrap";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import SideBar from './SideBar';
 import './Style.css';
 
@@ -51,14 +51,14 @@ class HomeContents extends Component {
       componentDidMount() {
         Promise.all([
           fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + "eminem", {
-            method: "GET",
-          headers: {
-           "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-           "x-rapidapi-key": "20438f9eb4mshb2a68ca50196b46p1d55a5jsn2dbdc2b012cd"
+            "method": "GET",
+          "headers": {
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            "x-rapidapi-key": "a8534a12bbmsh0c48470a69eec51p1f6e95jsnc3e6e0454ebc"
           }
          })
          .then(response => response.json())
-         .then()
+       
          .then(response => {
            this.setState({
              Eminem: response.data
@@ -66,14 +66,14 @@ class HomeContents extends Component {
          }),
     
           fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + "metallica" , {
-            method: "GET",
-          headers: {
-           "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-           "x-rapidapi-key": "20438f9eb4mshb2a68ca50196b46p1d55a5jsn2dbdc2b012cd"
+            "method": "GET",
+          "headers": {
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            "x-rapidapi-key": "a8534a12bbmsh0c48470a69eec51p1f6e95jsnc3e6e0454ebc"
           }
          })
          .then(response => response.json())
-         .then()
+      
          .then(response => {
            this.setState({
              Metallica: response.data
@@ -81,14 +81,14 @@ class HomeContents extends Component {
          }),
     
           fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=" + "behemoth", {
-            method: "GET",
-          headers: {
-           "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-           "x-rapidapi-key": "20438f9eb4mshb2a68ca50196b46p1d55a5jsn2dbdc2b012cd"
+            "method": "GET",
+          "headers": {
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            "x-rapidapi-key": "a8534a12bbmsh0c48470a69eec51p1f6e95jsnc3e6e0454ebc"
           }
          })
          .then(response => response.json())
-         .then()
+       
          .then(response => {
            this.setState({
              Behemoth: response.data
